@@ -67,11 +67,11 @@ void Grafo::bellmanFord() {
             }
         }
     }
-} 
+}
 
-void Grafo::atualizaMoedas(string &moeda){
-    moedas.push_back(moeda); 
-} 
+void Grafo::atualizaMoedas(string moeda){
+    moedas.push_back(moeda);
+}
 
 void Grafo::atualizaTabela(vector <double> &conversoes){
     for(int i=0; i<(int)conversoes.size() - 1; i++){
@@ -81,8 +81,22 @@ void Grafo::atualizaTabela(vector <double> &conversoes){
 }
 
 int Grafo::numMoedas(){
-    return moedas.size(); 
-} 
+    return moedas.size();
+}
+
+void Grafo::excluirMoeda(string moeda){
+    for(int i=0; i< (int)moedas.size(); i++){
+        if(moedas[i] == moeda){
+            moedas.erase(moedas.begin() + i);
+            tabela.erase(tabela.begin() + i);
+            for(int j=0; j< (int)tabela.size(); j++){
+                tabela[j].erase(tabela[j].begin() + i);
+            }
+            return;
+        }
+    }
+
+}
 
 
 

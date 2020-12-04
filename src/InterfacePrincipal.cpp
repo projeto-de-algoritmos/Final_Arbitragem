@@ -17,7 +17,9 @@ void InterfacePrincipal::menuPrincipal() {
         if(opcao == 1)
             cadastrarTabela();
         else if( opcao == 2)
-            novaMoeda();  
+            novaMoeda();
+        else if(opcao == 3)
+            deletarMoeda();
         else if(opcao == 5)
             grafo.imprimirTabela();
         else if(opcao == 6)
@@ -47,7 +49,7 @@ void InterfacePrincipal::cadastrarTabela() {
     grafo.setTabela(tabela);
 }
 
-void InterfacePrincipal::novaMoeda(){
+void InterfacePrincipal::novaMoeda() {
     string moeda = getSigla("Sigla: ");
     vector <double> conversoes; 
     for(int i=0; i < (int) grafo.numMoedas(); i++){
@@ -137,4 +139,9 @@ int InterfacePrincipal::getInt() {
 
 void InterfacePrincipal::calcularLucro() {
     grafo.bellmanFord();
+}
+
+void InterfacePrincipal::deletarMoeda() {
+    string moeda = getSigla("Informe a sigla da moeda que deseja excluir: ");
+    grafo.excluirMoeda(moeda);
 }

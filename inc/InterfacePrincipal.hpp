@@ -9,13 +9,14 @@ private:
 public:
     void menuPrincipal();
     void cadastrarTabela();
+    void novaMoeda();
     int getQuantidade(string mensagem);
     string getSigla(string mensagem);
     bool validaSigla(string &sigla);
     double getConversao(string mensagem);
     int getInt();
     void calcularLucro();
-    void novaMoeda(); 
+    void deletarMoeda(); 
 };
 
 #endif
