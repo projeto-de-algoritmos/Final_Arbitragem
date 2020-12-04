@@ -142,6 +142,10 @@ void InterfacePrincipal::calcularLucro() {
 }
 
 void InterfacePrincipal::deletarMoeda() {
+    if(grafo.numMoedas() == 0){
+        cout << "Não há moedas cadastradas" << endl; 
+        return; 
+    }
     string moeda = getSigla("Informe a sigla da moeda que deseja excluir: ");
     grafo.excluirMoeda(moeda);
 }

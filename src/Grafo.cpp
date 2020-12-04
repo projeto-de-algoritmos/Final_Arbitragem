@@ -92,11 +92,9 @@ void Grafo::excluirMoeda(string moeda){
             for(int j=0; j< (int)tabela.size(); j++){
                 tabela[j].erase(tabela[j].begin() + i);
             }
+            cout << "Moeda excluída com sucesso" << endl;
             return;
         }
     }
-
+    cout << "Moeda não cadastrada" << endl; 
 }
-
-
-
