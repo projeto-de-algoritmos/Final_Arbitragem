@@ -15,6 +15,7 @@ public:
     double getConversao(string mensagem);
     int getInt();
     void calcularLucro();
+    void novaMoeda(); 
 };
 
 #endif

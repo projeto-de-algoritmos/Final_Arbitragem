@@ -67,4 +67,22 @@ void Grafo::bellmanFord() {
             }
         }
     }
+} 
+
+void Grafo::atualizaMoedas(string &moeda){
+    moedas.push_back(moeda); 
+} 
+
+void Grafo::atualizaTabela(vector <double> &conversoes){
+    for(int i=0; i<(int)conversoes.size() - 1; i++){
+        tabela[i].push_back(1/conversoes[i]);
+    }
+    tabela.push_back(conversoes);
 }
+
+int Grafo::numMoedas(){
+    return moedas.size(); 
+} 
+
+
+

@@ -15,11 +15,14 @@ void InterfacePrincipal::menuPrincipal() {
         cout << "(0) Finalizar" << endl;
         opcao = getInt();
         if(opcao == 1)
-            cadastrarTabela(); 
+            cadastrarTabela();
+        else if( opcao == 2)
+            novaMoeda();  
         else if(opcao == 5)
             grafo.imprimirTabela();
         else if(opcao == 6)
             calcularLucro();
+        
     }
 }
 
@@ -44,6 +47,18 @@ void InterfacePrincipal::cadastrarTabela() {
     grafo.setTabela(tabela);
 }
 
+void InterfacePrincipal::novaMoeda(){
+    string moeda = getSigla("Sigla: ");
+    vector <double> conversoes; 
+    for(int i=0; i < (int) grafo.numMoedas(); i++){
+        string mensagem = "De " + grafo.getMoeda(i) + " para " + moeda + ": ";
+        double conversao = getConversao(mensagem);
+        conversoes.push_back(1/conversao); 
+    }
+    conversoes.push_back(1); 
+    grafo.atualizaMoedas(moeda);
+    grafo.atualizaTabela(conversoes); 
+}
 int InterfacePrincipal::getQuantidade(string mensagem) {
     int valor;
     bool loop = true;

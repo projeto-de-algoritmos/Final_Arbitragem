@@ -13,7 +13,10 @@ private:
 public:
     string getMoeda(int indice);
     void setMoedas(vector <string> &moedas);
+    int numMoedas(); 
     void setTabela(vector <vector <double>> &tabela);
+    void atualizaTabela(vector <double> &coversoes);
+    void atualizaMoedas(string &moeda); 
     void imprimirTabela();
     void bellmanFord();
 };
