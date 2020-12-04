@@ -15,6 +15,8 @@ void InterfacePrincipal::menuPrincipal() {
         opcao = getInt();
         if(opcao == 1)
             cadastrarTabela();
+        else if(opcao == 5)
+            grafo.imprimirTabela();
     }
 }
 
@@ -25,12 +27,14 @@ void InterfacePrincipal::cadastrarTabela() {
         string moeda = getSigla("Moeda " + to_string(i + 1) + ": ");
         moedas.push_back(moeda);
     }
-    vector <vector <double>> tabela;
+    vector <vector <double>> tabela(quantidade, vector <double>(quantidade));
     for(int i = 0; i < quantidade; i++) {
-        tabela.push_back(vector <double>());
+        tabela[i][i] = 1;
         for(int j = i + 1; j < quantidade; j++) {
             string mensagem = "De " + moedas[i] + " para " + moedas[j] + ": ";
-            tabela[i].push_back(getConversao(mensagem));
+            double conversao = getConversao(mensagem);
+            tabela[i][j] = conversao;
+            tabela[j][i] = 1 / conversao;
         }
     }
     grafo.setMoedas(moedas);

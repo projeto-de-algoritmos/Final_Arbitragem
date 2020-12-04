@@ -14,6 +14,7 @@ public:
     string getMoeda(int indice);
     void setMoedas(vector <string> &moedas);
     void setTabela(vector <vector <double>> &tabela);
+    void imprimirTabela();
 };
 
 #endif
