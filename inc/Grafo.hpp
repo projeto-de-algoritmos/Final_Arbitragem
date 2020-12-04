@@ -15,6 +15,7 @@ public:
     void setMoedas(vector <string> &moedas);
     void setTabela(vector <vector <double>> &tabela);
     void imprimirTabela();
+    void bellmanFord();
 };
 
 #endif

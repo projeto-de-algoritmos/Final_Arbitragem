@@ -14,6 +14,7 @@ public:
     bool validaSigla(string &sigla);
     double getConversao(string mensagem);
     int getInt();
+    void calcularLucro();
 };
 
 #endif

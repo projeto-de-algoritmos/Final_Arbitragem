@@ -18,6 +18,8 @@ void InterfacePrincipal::menuPrincipal() {
             cadastrarTabela(); 
         else if(opcao == 5)
             grafo.imprimirTabela();
+        else if(opcao == 6)
+            calcularLucro();
     }
 }
 
@@ -116,4 +118,8 @@ int InterfacePrincipal::getInt() {
         cin.ignore(32767, '\n');
     }
     return valor;
+}
+
+void InterfacePrincipal::calcularLucro() {
+    grafo.bellmanFord();
 }
