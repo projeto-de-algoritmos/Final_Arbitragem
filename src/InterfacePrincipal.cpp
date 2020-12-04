@@ -8,13 +8,14 @@ void InterfacePrincipal::menuPrincipal() {
         cout << "(3) Deletar moeda" << endl;
         cout << "(4) Alterar valor de conversão" << endl;
         cout << "(5) Ver tabela de conversão" << endl;
-        cout << "(6) Carregar exemplo" << endl;
-        cout << "(7) Carregar tabela" << endl;
-        cout << "(8) Salvar tabela" << endl;
+        cout << "(6) Calcular o maior lucro com operação de conversão" << endl; 
+        cout << "(7) Carregar exemplo" << endl;
+        cout << "(8) Carregar tabela" << endl;
+        cout << "(9) Salvar tabela" << endl;
         cout << "(0) Finalizar" << endl;
         opcao = getInt();
         if(opcao == 1)
-            cadastrarTabela();
+            cadastrarTabela(); 
         else if(opcao == 5)
             grafo.imprimirTabela();
     }
