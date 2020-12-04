@@ -24,7 +24,8 @@ void InterfacePrincipal::menuPrincipal() {
             grafo.imprimirTabela();
         else if(opcao == 6)
             calcularLucro();
-        
+        else if(opcao == 7)
+            carregarExemplo();
     }
 }
 
@@ -148,4 +149,13 @@ void InterfacePrincipal::deletarMoeda() {
     }
     string moeda = getSigla("Informe a sigla da moeda que deseja excluir: ");
     grafo.excluirMoeda(moeda);
+}
+
+void InterfacePrincipal::carregarExemplo() {
+    vector <vector <double>> tabela;
+    vector <string> moedas;
+    gerenciadorArquivos.carregarArquivo("exemplo", tabela, moedas);
+    grafo.setTabela(tabela);
+    grafo.setMoedas(moedas);
+    cout << "Exemplo carregado com sucesso" << endl;
 }

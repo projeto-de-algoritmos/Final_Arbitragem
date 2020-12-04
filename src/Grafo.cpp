@@ -59,7 +59,7 @@ void Grafo::bellmanFord() {
                     vertex = sucessor[vertex];
                 }
                 ciclo.push_back(sucessor[vertex]);
-                cout << "Arbitrage Opportunity: ";
+                cout << "Oportunidade de lucro: ";
                 for(int i: ciclo)
                     cout << moedas[i] << "   ";
                 cout << endl;

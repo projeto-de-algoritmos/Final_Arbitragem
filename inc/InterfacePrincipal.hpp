@@ -2,10 +2,12 @@
 #define INTERFACEPRINCIPAL_HPP
 
 #include "Grafo.hpp"
+#include "GerenciadorArquivos.hpp"
 
 class InterfacePrincipal {
 private:
     Grafo grafo;
+    GerenciadorArquivos gerenciadorArquivos;
 public:
     void menuPrincipal();
     void cadastrarTabela();
@@ -17,6 +19,7 @@ public:
     int getInt();
     void calcularLucro();
     void deletarMoeda(); 
+    void carregarExemplo();
 };
 
 #endif
