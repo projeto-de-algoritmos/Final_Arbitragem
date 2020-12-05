@@ -1,6 +1,7 @@
 #ifndef GERENCIADORARQUIVOS_HPP
 #define GERENCIADORARQUIVOS_HPP
 
+#include "Grafo.hpp"
 #include <iostream>
 #include <vector>
 
@@ -8,8 +9,8 @@ using namespace std;
 
 class GerenciadorArquivos {
 public:
-    void carregarArquivo(string nome, vector <vector <double>> &tabela, vector <string> &moedas);
-    void salvarArquivo(string nome, vector <vector <double>> &tabela, vector <string> &moedas);
+    void carregarArquivo(string nome, Grafo &grafo);
+    void salvarArquivo(string nome, Grafo &grafo);
 };
 
 #endif

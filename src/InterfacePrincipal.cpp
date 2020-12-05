@@ -26,8 +26,10 @@ void InterfacePrincipal::menuPrincipal() {
             calcularLucro();
         else if(opcao == 7)
             carregarExemplo();
-        else if(opcao == 9)
+        else if(opcao == 8)
             carregarDados();
+        else if(opcao == 9)
+            salvarDados();
     }
 }
 
@@ -154,18 +156,19 @@ void InterfacePrincipal::deletarMoeda() {
 }
 
 void InterfacePrincipal::carregarExemplo() {
-    vector <vector <double>> tabela;
-    vector <string> moedas;
-    gerenciadorArquivos.carregarArquivo("exemplo", tabela, moedas);
-    grafo.setTabela(tabela);
-    grafo.setMoedas(moedas);
-    cout << "Exemplo carregado com sucesso" << endl;
+    gerenciadorArquivos.carregarArquivo("exemplo", grafo);
+}
+
+void InterfacePrincipal::salvarDados() {
+    string nome;
+    cout << "Nome do arquivo para salvar: ";
+    getline(cin, nome);
+    gerenciadorArquivos.salvarArquivo(nome, grafo);
 }
 
 void InterfacePrincipal::carregarDados() {
     string nome;
-    cout << "Nome do arquivo para salvar: ";
+    cout << "Nome do arquivo para carregar: ";
     getline(cin, nome);
-    gerenciadorArquivos.salvarArquivo(nome, grafo.getTabela(), grafo.getMoedas());
-    cout << "Dados salvos com sucesso" << endl;
+    gerenciadorArquivos.carregarArquivo(nome, grafo);
 }

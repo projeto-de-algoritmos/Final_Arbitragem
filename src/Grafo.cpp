@@ -99,10 +99,10 @@ void Grafo::excluirMoeda(string moeda){
     cout << "Moeda não cadastrada" << endl; 
 }
 
-vector <vector <double>>& Grafo::getTabela() {
-    return tabela;
+int Grafo::getQtDeMoedas() {
+    return moedas.size();
 }
 
-vector <string>& Grafo::getMoedas() {
-    return moedas;
+double Grafo::getValor(int i, int j) {
+    return tabela[i][j];
 }
