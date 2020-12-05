@@ -20,6 +20,7 @@ public:
     void calcularLucro();
     void deletarMoeda(); 
     void carregarExemplo();
+    void carregarDados();
 };
 
 #endif

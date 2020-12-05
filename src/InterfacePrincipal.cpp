@@ -26,6 +26,8 @@ void InterfacePrincipal::menuPrincipal() {
             calcularLucro();
         else if(opcao == 7)
             carregarExemplo();
+        else if(opcao == 9)
+            carregarDados();
     }
 }
 
@@ -158,4 +160,12 @@ void InterfacePrincipal::carregarExemplo() {
     grafo.setTabela(tabela);
     grafo.setMoedas(moedas);
     cout << "Exemplo carregado com sucesso" << endl;
+}
+
+void InterfacePrincipal::carregarDados() {
+    string nome;
+    cout << "Nome do arquivo para salvar: ";
+    getline(cin, nome);
+    gerenciadorArquivos.salvarArquivo(nome, grafo.getTabela(), grafo.getMoedas());
+    cout << "Dados salvos com sucesso" << endl;
 }

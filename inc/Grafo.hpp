@@ -20,6 +20,8 @@ public:
     void excluirMoeda(string moeda); 
     void imprimirTabela();
     void bellmanFord();
+    vector <vector <double>>& getTabela();
+    vector <string>& getMoedas();
 };
 
 #endif
