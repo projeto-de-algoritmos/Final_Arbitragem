@@ -28,6 +28,7 @@ void Grafo::imprimirTabela() {
             cout << tabela[i][j] << setw(11);
         cout << endl;
     }
+    cout << endl << endl;
 }
 
 void Grafo::bellmanFord() {
@@ -51,7 +52,7 @@ void Grafo::bellmanFord() {
     }
     for(int v = 0; v < (int)tabela.size(); v++) {
         for(int w = 0; w < (int)tabela[v].size(); w++) {
-            if(M[w] > M[v] + tabela[v][w]) {
+            if(M[w] >  M[v] + tabela[v][w]) {
                 vector <int> ciclo = {w, v};
                 int vertex = v;
                 while(find(ciclo.begin(), ciclo.end(), sucessor[vertex]) == ciclo.end()) {
@@ -59,10 +60,16 @@ void Grafo::bellmanFord() {
                     vertex = sucessor[vertex];
                 }
                 ciclo.push_back(sucessor[vertex]);
+                double lucro = 1000;
                 cout << "Oportunidade de lucro: ";
-                for(int i: ciclo)
-                    cout << moedas[i] << "   ";
-                cout << endl;
+                for(int i=(int) ciclo.size() -1 ; i >= 0; i--){
+                    cout << moedas[ciclo[i]]; 
+                    if(i -1 > -1){  
+                        lucro*=this->tabela[ciclo[i]][ciclo[i-1]];
+                        cout << " -> " << lucro << "  ";
+                    }   
+                }
+                cout<< endl << "Lucro de: " << lucro - 1000 << endl << endl;
                 break;
             }
         }

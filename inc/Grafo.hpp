@@ -20,7 +20,7 @@ public:
     void excluirMoeda(string moeda);
     void atualizarConversao(string moeda1, string moeda2, double conversao);
     void imprimirTabela();
-    void bellmanFord();
+    void bellmanFord(double valor);
     int getQtDeMoedas();
     double getValor(int i, int j);
     int acharMoeda(string moeda);
