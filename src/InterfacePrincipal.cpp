@@ -42,8 +42,18 @@ void InterfacePrincipal::cadastrarTabela() {
     int quantidade = getQuantidade("Quantidade de moedas: ");
     vector <string> moedas;
     for(int i = 0; i < quantidade; i++) {
+        bool valido = true;
         string moeda = getSigla("Moeda " + to_string(i + 1) + ": ");
-        moedas.push_back(moeda);
+        for(int j=0; j< (int) moedas.size(); j++){
+            if(moeda == moedas[j]){     
+                cout << "Essa moeda já foi cadastrada " << endl;
+                i--;
+                valido = false;
+                break;
+            }
+        }
+        if(valido)
+            moedas.push_back(moeda);
     }
     vector <vector <double>> tabela(quantidade, vector <double>(quantidade));
     for(int i = 0; i < quantidade; i++) {
@@ -62,15 +72,20 @@ void InterfacePrincipal::cadastrarTabela() {
 void InterfacePrincipal::novaMoeda() {
     system("clear||cls");
     string moeda = getSigla("Sigla: ");
-    vector <double> conversoes; 
-    for(int i=0; i < (int) grafo.numMoedas(); i++){
-        string mensagem = "De " + grafo.getMoeda(i) + " para " + moeda + ": ";
-        double conversao = getConversao(mensagem);
-        conversoes.push_back(1/conversao); 
+    if(isNew(moeda)){
+        vector <double> conversoes; 
+        for(int i=0; i < (int) grafo.numMoedas(); i++){
+            string mensagem = "De " + grafo.getMoeda(i) + " para " + moeda + ": ";
+            double conversao = getConversao(mensagem);
+            conversoes.push_back(1/conversao); 
+        }
+        conversoes.push_back(1); 
+        grafo.atualizaMoedas(moeda);
+        grafo.atualizaTabela(conversoes);
+        spam("Moeda cadastrada com sucesso!");
     }
-    conversoes.push_back(1); 
-    grafo.atualizaMoedas(moeda);
-    grafo.atualizaTabela(conversoes); 
+    else
+        spam(moeda + " já está cadastrada");
 }
 int InterfacePrincipal::getQuantidade(string mensagem) {
     int valor;
@@ -150,7 +165,7 @@ int InterfacePrincipal::getInt() {
 
 void InterfacePrincipal::calcularLucro() {
     system("clear||cls");
-    grafo.bellmanFord();
+    grafo.bellmanFord(getConversao("Digite o valor com o qual deseja lucrar: "));
 }
 
 void InterfacePrincipal::deletarMoeda() {

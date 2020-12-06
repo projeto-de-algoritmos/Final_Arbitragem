@@ -31,7 +31,8 @@ void Grafo::imprimirTabela() {
     cout << endl << endl;
 }
 
-void Grafo::bellmanFord() {
+void Grafo::bellmanFord(double valor) {
+    system("clear||cls");
     vector <vector <double>> tabela = this->tabela;
     for(int i = 0; i < (int)tabela.size(); i++) {
         for(int j = 0; j < (int)tabela[i].size(); j++)
@@ -60,7 +61,7 @@ void Grafo::bellmanFord() {
                     vertex = sucessor[vertex];
                 }
                 ciclo.push_back(sucessor[vertex]);
-                double lucro = 1000;
+                double lucro = valor;
                 cout << "Oportunidade de lucro: ";
                 for(int i=(int) ciclo.size() -1 ; i >= 0; i--){
                     cout << moedas[ciclo[i]]; 
@@ -69,7 +70,7 @@ void Grafo::bellmanFord() {
                         cout << " -> " << lucro << "  ";
                     }   
                 }
-                cout<< endl << "Lucro de: " << lucro - 1000 << endl << endl;
+                cout<< endl << "Lucro de: " << fixed << setprecision(2) << lucro - valor << " " << moedas[ciclo[0]] << endl << endl;
                 break;
             }
         }
@@ -99,6 +100,7 @@ void Grafo::atualizarConversao(string moeda1, string moeda2, double conversao){
 }
 
 void Grafo::excluirMoeda(string moeda){
+    system("clear||cls");
     for(int i=0; i< (int)moedas.size(); i++){
         if(moedas[i] == moeda){
             moedas.erase(moedas.begin() + i);
@@ -106,11 +108,11 @@ void Grafo::excluirMoeda(string moeda){
             for(int j=0; j< (int)tabela.size(); j++){
                 tabela[j].erase(tabela[j].begin() + i);
             }
-            cout << "Moeda excluída com sucesso" << endl;
+            cout << "Moeda excluída com sucesso" << endl << endl;
             return;
         }
     }
-    cout << "Moeda não cadastrada" << endl; 
+    cout << "Moeda não cadastrada" << endl << endl; 
 }
 
 int Grafo::getQtDeMoedas() {

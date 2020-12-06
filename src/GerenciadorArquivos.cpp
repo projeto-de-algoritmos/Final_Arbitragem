@@ -5,7 +5,7 @@
 void GerenciadorArquivos::carregarArquivo(string nome, Grafo &grafo) {
     ifstream inFile("data/" + nome + ".txt");
     if(!inFile.is_open()) {
-        cout << "Não foi possível abrir o arquivo" << endl;
+        cout << "Não foi possível abrir o arquivo" << endl << endl;
         return;
     }
     vector <string> moedas;
@@ -25,14 +25,14 @@ void GerenciadorArquivos::carregarArquivo(string nome, Grafo &grafo) {
     grafo.setMoedas(moedas);
     grafo.setTabela(tabela);
     inFile.close();
-    cout << "Dados carregados com sucesso" << endl;
+    cout << "Dados carregados com sucesso" << endl << endl;
 }
 
 void GerenciadorArquivos::salvarArquivo(string nome, Grafo &grafo) {
     ofstream toFile;
     toFile.open("data/" + nome + ".txt");
     if(!toFile.is_open()) {
-        cout << "Não foi possível concluir a operação" << endl;
+        cout << "Não foi possível concluir a operação" << endl << endl;
         return;
     }
     for(int i = 0; i < grafo.getQtDeMoedas(); i++) {
@@ -50,5 +50,5 @@ void GerenciadorArquivos::salvarArquivo(string nome, Grafo &grafo) {
         toFile << endl;
     }
     toFile.close();
-    cout << "Dados salvos com sucesso" << endl;
+    cout << "Dados salvos com sucesso" << endl << endl;
 }
