@@ -167,8 +167,13 @@ void InterfacePrincipal::alterarConversao() {
     system("clear||cls");
     string moeda1 = getSigla("Moeda 1: ");
     string moeda2 = getSigla("Moeda 2: ");
-    double conversao = getConversao("Novo valor de conversão: ");
-    grafo.atualizarConversao(moeda1, moeda2, conversao);
+    if(!isNew(moeda1) && !isNew(moeda2)){
+        double conversao = getConversao("Novo valor de conversão: ");
+        grafo.atualizarConversao(moeda1, moeda2, conversao);
+        spam("Conversão atualizada com sucesso");
+    }
+    else
+        spam("Pelo menos uma das moedas ainda não foi cadastrada");
 }
 
 void InterfacePrincipal::carregarExemplo() {
@@ -195,4 +200,12 @@ void InterfacePrincipal::carregarDados() {
 void InterfacePrincipal::spam(string mensagem){
     system("clear||cls"); 
     cout << mensagem << endl << endl; 
+}
+
+bool InterfacePrincipal::isNew(string moeda){
+    for(int i =0; i< grafo.getQtDeMoedas(); i++){
+        if(moeda == grafo.getMoeda(i))
+            return false;
+    }
+    return true;
 }

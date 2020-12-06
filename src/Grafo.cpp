@@ -87,10 +87,8 @@ int Grafo::numMoedas(){
 void Grafo::atualizarConversao(string moeda1, string moeda2, double conversao){
     int pos1 = acharMoeda(moeda1);
     int pos2 = acharMoeda(moeda2); 
-    if(pos1 != -1 && pos2 != -1){
-        tabela[pos1][pos2] = conversao;
-        tabela[pos2][pos1] = 1/conversao;
-    }
+    tabela[pos1][pos2] = conversao;
+    tabela[pos2][pos1] = 1/conversao;
 }
 
 void Grafo::excluirMoeda(string moeda){

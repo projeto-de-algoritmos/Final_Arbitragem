@@ -24,6 +24,7 @@ public:
     void alterarConversao(); 
     void salvarDados();
     void carregarDados();
+    bool isNew(string moeda);
 };
 
 #endif
