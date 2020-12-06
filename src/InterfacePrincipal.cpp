@@ -22,8 +22,10 @@ void InterfacePrincipal::menuPrincipal() {
             deletarMoeda();
         else if(opcao == 4)
             alterarConversao();
-        else if(opcao == 5)
+        else if(opcao == 5){
+            system("clear||cls");
             grafo.imprimirTabela();
+        }
         else if(opcao == 6)
             calcularLucro();
         else if(opcao == 7)
@@ -164,7 +166,9 @@ void InterfacePrincipal::deletarMoeda() {
 void InterfacePrincipal::alterarConversao() {
     system("clear||cls");
     string moeda1 = getSigla("Moeda 1: ");
-    string moeda2 = getSigla("Moeda 2: "); 
+    string moeda2 = getSigla("Moeda 2: ");
+    double conversao = getConversao("Novo valor de conversão: ");
+    grafo.atualizarConversao(moeda1, moeda2, conversao);
 }
 
 void InterfacePrincipal::carregarExemplo() {

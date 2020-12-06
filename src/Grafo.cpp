@@ -84,8 +84,13 @@ int Grafo::numMoedas(){
     return moedas.size();
 }
 
-void Grafo::atualizarConversao(string moeda1, string moeda2){
-
+void Grafo::atualizarConversao(string moeda1, string moeda2, double conversao){
+    int pos1 = acharMoeda(moeda1);
+    int pos2 = acharMoeda(moeda2); 
+    if(pos1 != -1 && pos2 != -1){
+        tabela[pos1][pos2] = conversao;
+        tabela[pos2][pos1] = 1/conversao;
+    }
 }
 
 void Grafo::excluirMoeda(string moeda){
@@ -111,10 +116,11 @@ double Grafo::getValor(int i, int j) {
     return tabela[i][j];
 }
 
-bool Grafo::novaMoeda(string moeda) {
-    for(string m: moedas){
-        if(m == moeda)
-            return false;
+int Grafo::acharMoeda(string moeda) {
+    for(int i=0; i< getQtDeMoedas(); i++){
+        if(moedas[i] == moeda)
+            return i;
     }
-    return true;
+    return -1; 
 }
+
