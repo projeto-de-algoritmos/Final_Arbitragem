@@ -17,9 +17,11 @@ public:
     bool validaSigla(string &sigla);
     double getConversao(string mensagem);
     int getInt();
+    void spam(string mensagem); 
     void calcularLucro();
     void deletarMoeda(); 
     void carregarExemplo();
+    void alterarConversao(); 
     void salvarDados();
     void carregarDados();
 };

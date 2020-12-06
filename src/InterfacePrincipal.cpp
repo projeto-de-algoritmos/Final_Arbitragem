@@ -20,6 +20,8 @@ void InterfacePrincipal::menuPrincipal() {
             novaMoeda();
         else if(opcao == 3)
             deletarMoeda();
+        else if(opcao == 4)
+            alterarConversao();
         else if(opcao == 5)
             grafo.imprimirTabela();
         else if(opcao == 6)
@@ -34,6 +36,7 @@ void InterfacePrincipal::menuPrincipal() {
 }
 
 void InterfacePrincipal::cadastrarTabela() {
+    system("clear||cls");
     int quantidade = getQuantidade("Quantidade de moedas: ");
     vector <string> moedas;
     for(int i = 0; i < quantidade; i++) {
@@ -55,6 +58,7 @@ void InterfacePrincipal::cadastrarTabela() {
 }
 
 void InterfacePrincipal::novaMoeda() {
+    system("clear||cls");
     string moeda = getSigla("Sigla: ");
     vector <double> conversoes; 
     for(int i=0; i < (int) grafo.numMoedas(); i++){
@@ -143,23 +147,33 @@ int InterfacePrincipal::getInt() {
 }
 
 void InterfacePrincipal::calcularLucro() {
+    system("clear||cls");
     grafo.bellmanFord();
 }
 
 void InterfacePrincipal::deletarMoeda() {
+    system("clear||cls");
     if(grafo.numMoedas() == 0){
-        cout << "Não há moedas cadastradas" << endl; 
+        spam("Não há moedas cadastradas"); 
         return; 
     }
     string moeda = getSigla("Informe a sigla da moeda que deseja excluir: ");
     grafo.excluirMoeda(moeda);
 }
 
+void InterfacePrincipal::alterarConversao() {
+    system("clear||cls");
+    string moeda1 = getSigla("Moeda 1: ");
+    string moeda2 = getSigla("Moeda 2: "); 
+}
+
 void InterfacePrincipal::carregarExemplo() {
+    system("clear||cls");
     gerenciadorArquivos.carregarArquivo("exemplo", grafo);
 }
 
 void InterfacePrincipal::salvarDados() {
+    system("clear||cls");
     string nome;
     cout << "Nome do arquivo para salvar: ";
     getline(cin, nome);
@@ -167,8 +181,14 @@ void InterfacePrincipal::salvarDados() {
 }
 
 void InterfacePrincipal::carregarDados() {
+    system("clear||cls");
     string nome;
     cout << "Nome do arquivo para carregar: ";
     getline(cin, nome);
     gerenciadorArquivos.carregarArquivo(nome, grafo);
+}
+
+void InterfacePrincipal::spam(string mensagem){
+    system("clear||cls"); 
+    cout << mensagem << endl << endl; 
 }
