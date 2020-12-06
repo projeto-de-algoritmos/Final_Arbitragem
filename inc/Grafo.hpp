@@ -17,11 +17,13 @@ public:
     void atualizaTabela(vector <double> &coversoes);
     int numMoedas(); 
     void atualizaMoedas(string moeda);
-    void excluirMoeda(string moeda); 
+    void excluirMoeda(string moeda);
+    void atualizarConversao(string moeda1, string moeda2);
     void imprimirTabela();
     void bellmanFord();
     int getQtDeMoedas();
     double getValor(int i, int j);
+    bool novaMoeda(string moeda);
 };
 
 #endif
