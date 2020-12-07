@@ -51,6 +51,7 @@ void Grafo::bellmanFord(double valor) {
             }
         }
     }
+    bool temLucro = false;
     for(int v = 0; v < (int)tabela.size(); v++) {
         for(int w = 0; w < (int)tabela[v].size(); w++) {
             if(M[w] >  M[v] + tabela[v][w]) {
@@ -70,11 +71,14 @@ void Grafo::bellmanFord(double valor) {
                         cout << " -> " << lucro << "  ";
                     }   
                 }
-                cout<< endl << "Lucro de: " << fixed << setprecision(2) << lucro - valor << " " << moedas[ciclo[0]] << endl << endl;
+                cout<< endl << "Lucro de: " << lucro - valor << " " << moedas[ciclo[0]] << endl << endl;
+                temLucro = true;
                 break;
             }
         }
     }
+    if(!temLucro)
+        cout << "Não foi encontrada oportunidade de lucro" << endl << endl;
 }
 
 void Grafo::atualizaMoedas(string moeda){

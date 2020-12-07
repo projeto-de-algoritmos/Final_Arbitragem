@@ -168,6 +168,10 @@ int InterfacePrincipal::getInt() {
 }
 
 void InterfacePrincipal::calcularLucro() {
+    if(grafo.getQtDeMoedas() == 0) {
+        spam("Cadastre uma tabela para utilizar essa opção");
+        return;
+    }
     system("clear||cls");
     grafo.bellmanFord(getConversao("Digite o valor com o qual deseja lucrar: "));
 }
