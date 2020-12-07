@@ -25,6 +25,7 @@ public:
     void salvarDados();
     void carregarDados();
     bool isNew(string moeda);
+    void mostrarTabela();
 };
 
 #endif

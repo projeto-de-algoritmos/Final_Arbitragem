@@ -22,10 +22,8 @@ void InterfacePrincipal::menuPrincipal() {
             deletarMoeda();
         else if(opcao == 4)
             alterarConversao();
-        else if(opcao == 5){
-            system("clear||cls");
-            grafo.imprimirTabela();
-        }
+        else if(opcao == 5)
+            mostrarTabela();
         else if(opcao == 6)
             calcularLucro();
         else if(opcao == 7)
@@ -35,6 +33,11 @@ void InterfacePrincipal::menuPrincipal() {
         else if(opcao == 9)
             salvarDados();
     }
+}
+
+void InterfacePrincipal::mostrarTabela() {
+    system("clear||cls");
+    grafo.imprimirTabela();
 }
 
 void InterfacePrincipal::cadastrarTabela() {
@@ -67,6 +70,7 @@ void InterfacePrincipal::cadastrarTabela() {
     }
     grafo.setMoedas(moedas);
     grafo.setTabela(tabela);
+    spam("Tabela cadastrada com sucesso");
 }
 
 void InterfacePrincipal::novaMoeda() {
@@ -193,7 +197,10 @@ void InterfacePrincipal::alterarConversao() {
 
 void InterfacePrincipal::carregarExemplo() {
     system("clear||cls");
-    gerenciadorArquivos.carregarArquivo("exemplo", grafo);
+    if(gerenciadorArquivos.carregarArquivo("exemplo", grafo))
+        spam("Dados carregados com sucesso");
+    else
+        spam("Não foi possível concluir a operação");
 }
 
 void InterfacePrincipal::salvarDados() {
@@ -201,7 +208,10 @@ void InterfacePrincipal::salvarDados() {
     string nome;
     cout << "Nome do arquivo para salvar: ";
     getline(cin, nome);
-    gerenciadorArquivos.salvarArquivo(nome, grafo);
+    if(gerenciadorArquivos.salvarArquivo(nome, grafo))
+        spam("Dados salvos com sucesso");
+    else
+        spam("Não foi possível concluir a operação");
 }
 
 void InterfacePrincipal::carregarDados() {
@@ -209,7 +219,10 @@ void InterfacePrincipal::carregarDados() {
     string nome;
     cout << "Nome do arquivo para carregar: ";
     getline(cin, nome);
-    gerenciadorArquivos.carregarArquivo(nome, grafo);
+    if(gerenciadorArquivos.carregarArquivo(nome, grafo))
+        spam("Dados carregados com sucesso");
+    else
+        spam("Não foi possível concluir a operação");
 }
 
 void InterfacePrincipal::spam(string mensagem){

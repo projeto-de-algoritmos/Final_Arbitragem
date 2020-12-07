@@ -9,8 +9,8 @@ using namespace std;
 
 class GerenciadorArquivos {
 public:
-    void carregarArquivo(string nome, Grafo &grafo);
-    void salvarArquivo(string nome, Grafo &grafo);
+    bool carregarArquivo(string nome, Grafo &grafo);
+    bool salvarArquivo(string nome, Grafo &grafo);
 };
 
 #endif
