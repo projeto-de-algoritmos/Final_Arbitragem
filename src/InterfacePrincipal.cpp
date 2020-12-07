@@ -8,7 +8,7 @@ void InterfacePrincipal::menuPrincipal() {
         cout << "(3) Deletar moeda" << endl;
         cout << "(4) Alterar valor de conversão" << endl;
         cout << "(5) Ver tabela de conversão" << endl;
-        cout << "(6) Calcular o maior lucro com operação de conversão" << endl; 
+        cout << "(6) Computar oportunidades de lucro" << endl; 
         cout << "(7) Carregar exemplo" << endl;
         cout << "(8) Carregar tabela" << endl;
         cout << "(9) Salvar tabela" << endl;

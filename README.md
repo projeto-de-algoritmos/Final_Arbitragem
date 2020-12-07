@@ -41,11 +41,11 @@ make run
 - **Deletar moeda:** Permite deletar uma moeda da lista de moedas já existente.
 - **Alterar valor de conversão:** Permite que sejam escolhidas duas moedas e um valor para que seja alterado o valor de conversão de uma para a outra.
 - **Ver tabela de conversão:** Mostra todos os valores de conversão atualmente em uso.
-- **Calcular o maior lucro com operação de conversão:** Encontra oportunidades de lucro e em seguida lista essas oportunidades.
+- **Computar oportunidades de lucro:** Encontra oportunidades de lucro e em seguida lista essas oportunidades.
 - **Carregar exemplo:** Carrega um exemplo pré-definido de dados de conversão.
 - **Carregar tabela:** Pede o nome de um arquivo salvo na pasta data que tem os dados de conversão salvos e carrega os dados para o programa. Não deve ser incluído o ".txt".
 - **Salvar tabela:** Salva os dados de conversão que estão em uso no momento em um arquivo de texto para que possa ser carregado depois. Não deve ser incluído o ".txt"
 
 ## Outros 
-- O vídeo explicativo está na pasta raíz do projeto.
+- O vídeo explicativo está na pasta raíz do projeto. (A descrição da opção 6 do menu foi alterada após o vídeo)
 - Motivação: http://www.dt.fee.unicamp.br/~ricfow/IA881/caminhoMinimo.pdf
